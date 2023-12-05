@@ -64,4 +64,3 @@ if __name__ == "__main__":
             print(f"Number of selected words: {len(words_result)}")
         else:
             print("No words selected.")
-HELLO 
