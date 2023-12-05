@@ -64,3 +64,35 @@ if __name__ == "__main__":
             print(f"Number of selected words: {len(words_result)}")
         else:
             print("No words selected.")
+
+#PROTEINS (india)
+
+def read_sequence(file_path):
+    pass
+
+
+#SEARCHING FOR WORDS
+def search_words_in_proteome(words, protein_sequences):
+    """
+    This functions finds words (from the list of words created by the read_words function) inside of the protein 
+    sequences.
+
+    Args:
+    - file_path (str): The path to the file containing words.
+
+    Returns:
+    - list: A list of uppercase words found in the protein sequences and in how many sequences they appear in.
+    """
+    word_counts = {}
+    for word in words:
+        count = 0
+        for sequence in protein_sequences.values():
+            if word in sequence:
+                count += 1
+        word_counts[word] = count
+        print(f"{word} found in {count} sequences")
+    return word_counts
+words = read_words("pygen\words\english-common-words.txt")
+protein_sequences = read_sequence('human-proteome.fasta')
+word_counts = search_words_in_proteome(words, protein_sequences)
+print(word_counts)
