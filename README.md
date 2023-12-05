@@ -1,7 +1,6 @@
 # SPIDIL
-testing testing again
 This repository is a group project for the IDIL Ecology & Evolution masters degree software development unit : *https://bcharlier.github.io/HAB796B9/*
-
+hell yeah
 ## Code used to download the files used by the script
 
 import os
