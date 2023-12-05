@@ -30,3 +30,4 @@ filename3 = "NC_001133.gbk"
 download_file(url1, download_directory, filename1)
 download_file(url2, download_directory, filename2)
 download_file(url3, download_directory, filename3)
+ 
