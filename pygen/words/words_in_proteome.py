@@ -97,8 +97,34 @@ if __name__ == "__main__":
     else:
         print(f"Found 'human-proteome.fasta' at: {proteome_file_path}")
     
-    # Continue with the rest of your script using the found file paths
-    # ...
+   def search_words_in_proteome(words, sequences):
+    """
+    Count the number of sequences in which each word is present in the proteome.
+
+    Args:
+    - words (list): A list of words to search for.
+    - sequences (dict): A dictionary with protein identifiers as keys and sequences as values.
+
+    Returns:
+    - dict: A dictionary with words as keys and the number of sequences containing these words as values.
+    """
+    word_counts = {}
+    for word in words:
+        count = 0
+        for sequence in sequences.values():
+            if word in sequence:
+                count += 1
+        word_counts[word] = count
+        if count > 0:
+            print(f"{word} found in {count} sequences")
+
+    return word_counts
+
+if __name__ == "__main__":
+    # You can specify the file paths when running the script
+    words_file_path = "english-common-words.txt"
+    proteome_file_path = "human-proteome.fasta"
+
 
     if words_file_path :
         # Read words
@@ -121,3 +147,11 @@ if __name__ == "__main__":
         print(f"Number of protein sequences: {len(sequences_result)}")
     else:
         print("No protein sequences found.")
+
+ # Search words in the proteome
+    if words_result and sequences_result:
+        word_counts_result = search_words_in_proteome(words_result, sequences_result)
+        print("\nWord Counts in the Proteome:")
+        print(word_counts_result)
+    else:
+        print("No words or protein sequences available for search.")
