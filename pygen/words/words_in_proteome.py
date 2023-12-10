@@ -81,7 +81,7 @@ def read_sequences(file_path):
 
 if __name__ == "__main__":
     # Specify the directory to search for files
-    search_directory = "C:/Users/India ELLIOTT/Documents/SPIDIL"
+    search_directory = "C:/Users/teren/Desktop/softdev_project"
 
     # Find the words file
     words_file_path = find_file(search_directory, "english-common-words.txt")
@@ -97,28 +97,38 @@ if __name__ == "__main__":
     else:
         print(f"Found 'human-proteome.fasta' at: {proteome_file_path}")
     
-   def search_words_in_proteome(words, sequences):
+   
+    def search_words_in_proteome(words, sequences):
+   
+        word_counts = {}
+        for word in words:
+            count = 0
+            for sequence in sequences.values():
+                if word in sequence:
+                    count += 1
+            word_counts[word] = count
+            if count > 0:
+                print(f"{word} found in {count} sequences")
+
+        return word_counts
+    
+def find_most_frequent_word(word_counts, total_sequences):
     """
-    Count the number of sequences in which each word is present in the proteome.
+    Find the word found in the most sequences and display related information.
 
     Args:
-    - words (list): A list of words to search for.
-    - sequences (dict): A dictionary with protein identifiers as keys and sequences as values.
+    - word_counts (dict): A dictionary with words as keys and the number of sequences containing these words as values.
+    - total_sequences (int): The total number of protein sequences in the proteome.
 
     Returns:
-    - dict: A dictionary with words as keys and the number of sequences containing these words as values.
+    - None
     """
-    word_counts = {}
-    for word in words:
-        count = 0
-        for sequence in sequences.values():
-            if word in sequence:
-                count += 1
-        word_counts[word] = count
-        if count > 0:
-            print(f"{word} found in {count} sequences")
+    most_frequent_word = max(word_counts, key=word_counts.get)
+    count = word_counts[most_frequent_word]
 
-    return word_counts
+    print(f"\nMost Frequent Word:")
+    print(f"=> {most_frequent_word} found in {count} sequences")
+    print(f"=> Percentage of proteome sequences: {count / total_sequences * 100:.2f}%")
 
 if __name__ == "__main__":
     # You can specify the file paths when running the script
@@ -135,7 +145,7 @@ if __name__ == "__main__":
             print(words_result)
             print(f"Number of selected words: {len(words_result)}")
         else:
-            print("No words selected.")
+            print("No words selected.")##
 
         # Read protein sequences
     sequences_result = read_sequences(proteome_file_path)
@@ -155,3 +165,8 @@ if __name__ == "__main__":
         print(word_counts_result)
     else:
         print("No words or protein sequences available for search.")
+
+# Find the most frequent word and display information
+    find_most_frequent_word(word_counts_result, len(sequences_result))
+else:
+    print("No words or protein sequences available for search.")
