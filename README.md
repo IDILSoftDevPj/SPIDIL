@@ -1,6 +1,5 @@
 # SPIDIL
-This repository is a group project for the IDIL Ecology & Evolution masters degree software development unit : *https://bcharlier.github.io/HAB796B9/*
-
+This repository is a group project for the IDIL Ecology & Evolution masters degree software development unit : *https://bcharlier.github.io/HAB796B9/
 ## Code used to download the files used by the script
 
 import os
@@ -30,3 +29,4 @@ filename3 = "NC_001133.gbk"
 download_file(url1, download_directory, filename1)
 download_file(url2, download_directory, filename2)
 download_file(url3, download_directory, filename3)
+ 
