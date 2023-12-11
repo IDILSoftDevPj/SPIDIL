@@ -44,3 +44,38 @@ for line in file_content:
 
 # Print the organism name
 print(f"Organism name: {organism_name}")
+
+# Reverse complementory sequence
+def construct_comp_inverse(dna_sequence):
+    # Define a dictionary for complementary bases
+    comp_dict = {'a': 't', 't': 'a', 'c': 'g', 'g': 'c'}
+    
+    # Convert the DNA sequence to lowercase
+    dna_sequence = dna_sequence.lower()
+    
+    # Take the complementary sequence
+    comp_sequence = ''.join(comp_dict[base] for base in dna_sequence)
+    
+    # Take the reverse of the complementary sequence
+    comp_inverse_sequence = comp_sequence[::-1]
+    
+    return comp_inverse_sequence
+
+# Test the function with the provided sequences
+sequence1 = "atcg"
+sequence2 = "AATTCCGG"
+sequence3 = "gattaca"
+
+result1 = construct_comp_inverse(sequence1)
+result2 = construct_comp_inverse(sequence2)
+result3 = construct_comp_inverse(sequence3)
+
+print("Original Sequence 1:", sequence1)
+print("Result 1:", result1)
+
+print("\nOriginal Sequence 2:", sequence2)
+print("Result 2:", result2)
+
+print("\nOriginal Sequence 3:", sequence3)
+print("Result 3:", result3)
+
