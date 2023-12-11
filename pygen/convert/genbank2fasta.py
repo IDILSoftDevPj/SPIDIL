@@ -19,8 +19,32 @@ def extract_organism(file_content):
     else:
         return "Organism name not found."
 
+def find_genes(file_content):
+    genes = []
+
+    for line in file_content:
+        if line.startswith('     gene            '):  # Check if the line indicates a gene
+            is_antisense = 'complement' in line  # Check if it's an antisense gene
+            line = line.replace('     gene            ', '')  # Remove unnecessary prefix
+            line = line.replace('<', '').replace('>', '')  # Remove < and > symbols
+
+            # Extract the start and end positions
+            positions = [int(pos.strip()) for pos in line.replace('complement(', '').replace(')', '').split('..')]
+
+            if len(positions) == 1:
+                start = end = positions[0]
+            else:
+                start, end = positions
+
+            if is_antisense:
+                genes.append([start, end, 'antisense'])
+            else:
+                genes.append([start, end, 'sense'])
+
+    return genes
+
 # Define the file path
-directory = "C:/Users/India ELLIOTT/Documents/SPIDIL"
+directory = "C:/Users/teren/Desktop/softdev_project"
 file_name = "NC_001133.gbk"
 file_path = os.path.join(directory, file_name)
 
@@ -29,6 +53,9 @@ file_content = read_file(file_path)
 
 # Call the extract_organism() function
 organism_name = extract_organism(file_content)
+
+# Call the find_genes() function
+genes = find_genes(file_content)
 
 # You can now use the 'file_content' list for further processing
 # For example, printing the first 10 lines:
@@ -44,6 +71,11 @@ for line in file_content:
 
 # Print the organism name
 print(f"Organism name: {organism_name}")
+
+# Print information about each gene
+print("Information about each gene:")
+for gene in genes:
+    print(f"Start: {gene[0]}, End: {gene[1]}, Type: {gene[2]}")
 
 # Reverse complementory sequence
 def construct_comp_inverse(dna_sequence):
