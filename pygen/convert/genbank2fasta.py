@@ -79,3 +79,22 @@ print("Result 2:", result2)
 print("\nOriginal Sequence 3:", sequence3)
 print("Result 3:", result3)
 
+#writing a fasta file
+
+def write_fasta(file_name, comment, sequence):
+    # Open the file in write mode
+    with open(file_name, 'w') as fasta_file:
+        # Write the comment line
+        fasta_file.write(f'>{comment}\n')
+
+        # Write the sequence in lines of 80 characters
+        for i in range(0, len(sequence), 80):
+            line = sequence[i:i+80]
+            fasta_file.write(f'{line}\n')
+
+# Test the function
+file_name = 'test.fasta'
+comment = 'my comment'
+sequence = 'atcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcgatcg'
+
+write_fasta(file_name, comment, sequence)
