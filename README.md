@@ -76,6 +76,7 @@ git clone “https link”
 
 ## Name mislabeling:
 git config --global --replace-all user.name "your name"
+
 git config --global --replace-all user.email "your git email” 
 
 ## Access rights problems:
