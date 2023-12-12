@@ -4,9 +4,11 @@
 
 *IDIL Ecology & Evolution masters degree 2023-2024*
 
-This repository is a group project for the **software development** unit : *https://bcharlier.github.io/HAB796B9/ 
+This repository is a group project for the **software development** unit : https://bcharlier.github.io/HAB796B9/ 
 
-The objective of this project is to see in we can find english words in the sequences of amino acids from the human proteome. To do this, we first use a file containing the 3000 most common words in the English lexicon. git
+The objective of this project is to see in we can find english words in the sequences of amino acids from the human proteome. To do this, we first use a file containing the 3000 most common words in the English lexicon. Afterwards, we use the human-proteome fasta file to create a dictionary containing all the sequences of amino acids for each proteins. We create functions that will search for words in the sequences. 
+
+The second objective of our project is to convert a Genbank file into a fasta file, using the genome of Saccharomyces cerevisiae’s chromosome I. Firstly, we read the Genbank file "NC_001133.gbk". We create functions to identify the organism and the genes, as well as the nucleotide sequences. We create a complimentary sequence and create a fasta file. 
 
 ## Code used to download the files used by the script
 
