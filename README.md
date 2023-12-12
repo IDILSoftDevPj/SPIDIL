@@ -57,9 +57,9 @@ reading words from a file + reading protein sequences from a FASTA file
 count how many times each word appears in the protein sequences
 ### function find_most_frequent_word(word_counts, total_sequences) 
 finding the most frequent word + displaying related information
-## Genbank2fasta functions:
+## 2) Genbank2fasta functions:
 
-### 2) function read_file(file_path) 
+### function read_file(file_path) 
 reads the content of a file and counts the number of lines
 ### function regular expression to extract the organism name from the GenBank file: 
 #### function find_genes(file_content) 
