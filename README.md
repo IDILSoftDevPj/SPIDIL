@@ -1,5 +1,10 @@
 # Software development project: Finding english words in the human proteome
-This repository is a group project for the IDIL Ecology & Evolution masters degree software development unit : *https://bcharlier.github.io/HAB796B9/ 
+
+*A project made by Victor QUAGLIA, Nicolina MURUZUC, India ELLIOTT and Mountassira MATIN*
+*IDIL Ecology & Evolution masters degree 2023-2024*
+
+This repository is a group project for the **software development** unit : *https://bcharlier.github.io/HAB796B9/ 
+
 ## Code used to download the files used by the script
 
 import os
