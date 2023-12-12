@@ -86,7 +86,7 @@ def write_fasta(file_name, comment, sequence):
 
 if __name__ == "__main__":
     # Specify the directory and file name
-    directory = "C:/Users/Skydr/OneDrive/Documents/M1 IDIL ECO EVO/software development/project files txt"
+    directory = "YOUR_DIECTORY"
     file_name = "NC_001133.gbk"
     file_path = os.path.join(directory, file_name)
 
