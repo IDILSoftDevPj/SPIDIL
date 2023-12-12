@@ -45,6 +45,32 @@ Analyzing the occurrence of common English words in a human proteome dataset and
 
 Extracting details about genes from a GenBank file, manipulating DNA sequences, and writing a fasta file
 
+# Usefull commands
+## Creating a branch :
+cd spidil
+
+git branch branch_name 
+
+git branch 
+
+git checkout branch_name
+
+## to commit : 
+git add . 
+
+git commit -m "new branch" 
+
+git push origin your branch
+
+## to pull from main: 
+git checkout main
+
+git pull
+
+git checkout your branch
+
+git merge main
+
 # Functions used in each file
 
 ## 1) Words in proteom functions:
