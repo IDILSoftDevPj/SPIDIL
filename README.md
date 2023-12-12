@@ -65,7 +65,9 @@ reads the content of a file and counts the number of lines
 #### function find_genes(file_content) 
 extracts information about genes from the GenBank file
 #### functions read_file(), extract_organism() + find_genes() 
-
+obtain file content, organism name, and gene information
+#### function write_fasta(file_name, comment, sequence) 
+write a FASTA file with a given file name, comment, and DNA sequence
 # Issues and Challenges solutions:
 
 ## Cloning:
@@ -91,10 +93,4 @@ Pip install to install packages
 
 ## Connection timeout error :
 check internet network
-
-
-
-obtain file content, organism name, and gene information
-#### function write_fasta(file_name, comment, sequence) 
-write a FASTA file with a given file name, comment, and DNA sequence
  
