@@ -39,6 +39,12 @@ download_file(url2, download_directory, filename2)
 
 download_file(url3, download_directory, filename3)
 
+# Aims of our project 
+
+Analyze the occurrence of common English words in a human proteome dataset and identify the most frequently occurring word
+
+Extracting details about genes from a GenBank file, manipulating DNA sequences, and writing a fasta file
+
 # Functions used in each file
 
 ## Words in proteom functions:
