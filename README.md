@@ -15,6 +15,7 @@ The second objective of our project is to convert a Genbank file into a fasta fi
 ## Code used to download the files used by the script
 <pre>
 ```python
+    
 import os
 import requests
 
@@ -49,6 +50,7 @@ download_file(url1, download_directory, filename1)
 download_file(url2, download_directory, filename2)
 
 download_file(url3, download_directory, filename3)
+    
 ```
 </pre>
 
