@@ -33,13 +33,6 @@ organism_name = extract_organism(file_content)
 # Call the find_genes() function
 genes = find_genes(file_content)
 
-# You can now use the 'file_content' list for further processing
-# For example, printing the first 10 lines:
-
-##print("First 10 lines:")
-##for line in file_content[:10]:
-##    print(line.strip())
-
 ## Here it will print all the lines of the file:
 print("All the lines")
 for line in file_content:
