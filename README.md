@@ -1,9 +1,12 @@
 # Software development project: Finding english words in the human proteome
 
 *A project made by Victor QUAGLIA, Nicolina MURUZUC, India ELLIOTT and Mountassira MATIN*
+
 *IDIL Ecology & Evolution masters degree 2023-2024*
 
 This repository is a group project for the **software development** unit : *https://bcharlier.github.io/HAB796B9/ 
+
+The objective of this project is to see in we can find english words in the sequences of amino acids from the human proteome. To do this, we first use a file containing the 3000 most common words in the English lexicon. git
 
 ## Code used to download the files used by the script
 
