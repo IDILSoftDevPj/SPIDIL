@@ -17,7 +17,7 @@ def download_file(url, destination, filename):
     else:
         print(f"Failed to download file. Status code: {response.status_code}")
 
-# Example usage:
+## Example usage:
 url1 = "https://python.sdv.univ-paris-diderot.fr/data-files/english-common-words.txt"
 url2 = "https://python.sdv.univ-paris-diderot.fr/data-files/human-proteome.fasta"
 url3 = "https://python.sdv.univ-paris-diderot.fr/data-files/NC_001133.gbk"
