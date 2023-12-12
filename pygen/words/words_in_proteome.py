@@ -63,7 +63,7 @@ def read_sequences(file_path):
                 if line.startswith('>'):
                     if current_identifier is not None:
                         sequences[current_identifier] = ''.join(current_sequence)
-                    current_identifier = line[4:10]
+                    current_identifier = line[1:]
                     current_sequence = []
                 else:
                     current_sequence.append(line)
@@ -79,39 +79,29 @@ def read_sequences(file_path):
         print(f"An error occurred: {e}")
         return {}
 
-if __name__ == "__main__":
-    # Specify the directory to search for files
-    search_directory = "C:/Users/teren/Desktop/softdev_project"
+def search_words_in_proteome(words, sequences):
+    """
+    Count the number of sequences in which each word is present in the proteome.
 
-    # Find the words file
-    words_file_path = find_file(search_directory, "english-common-words.txt")
-    if words_file_path is None:
-        print("Error: 'english-common-words.txt' not found.")
-    else:
-        print(f"Found 'english-common-words.txt' at: {words_file_path}")
-    
-    # Find the proteome file
-    proteome_file_path = find_file(search_directory, "human-proteome.fasta")
-    if proteome_file_path is None:
-        print("Error: 'human-proteome.fasta' not found.")
-    else:
-        print(f"Found 'human-proteome.fasta' at: {proteome_file_path}")
-    
-   
-    def search_words_in_proteome(words, sequences):
-   
-        word_counts = {}
-        for word in words:
-            count = 0
-            for sequence in sequences.values():
-                if word in sequence:
-                    count += 1
-            word_counts[word] = count
-            if count > 0:
-                print(f"{word} found in {count} sequences")
+    Args:
+    - words (list): A list of words to search for.
+    - sequences (dict): A dictionary with protein identifiers as keys and sequences as values.
 
-        return word_counts
-    
+    Returns:
+    - dict: A dictionary with words as keys and the number of sequences containing these words as values.
+    """
+    word_counts = {}
+    for word in words:
+        count = 0
+        for sequence in sequences.values():
+            if word in sequence:
+                count += 1
+        word_counts[word] = count
+        if count > 0:
+            print(f"{word} found in {count} sequences")
+
+    return word_counts
+
 def find_most_frequent_word(word_counts, total_sequences):
     """
     Find the word found in the most sequences and display related information.
@@ -131,12 +121,27 @@ def find_most_frequent_word(word_counts, total_sequences):
     print(f"=> Percentage of proteome sequences: {count / total_sequences * 100:.2f}%")
 
 if __name__ == "__main__":
-    # You can specify the file paths when running the script
-    words_file_path = "english-common-words.txt"
-    proteome_file_path = "human-proteome.fasta"
+    # Specify the directory to search for files
+    search_directory = "C:/Users/Skydr/OneDrive/Documents/M1 IDIL ECO EVO/software development/project files txt"
 
+    # Find the words file
+    words_file_path = find_file(search_directory, "english-common-words.txt")
+    if words_file_path is None:
+        print("Error: 'english-common-words.txt' not found.")
+    else:
+        print(f"Found 'english-common-words.txt' at: {words_file_path}")
 
-    if words_file_path :
+    # Find the proteome file
+    proteome_file_path = find_file(search_directory, "human-proteome.fasta")
+    if proteome_file_path is None:
+        print("Error: 'human-proteome.fasta' not found.")
+    else:
+        print(f"Found 'human-proteome.fasta' at: {proteome_file_path}")
+
+    # Continue with the rest of your script using the found file paths
+    # ...
+
+    if words_file_path and proteome_file_path:
         # Read words
         words_result = read_words(words_file_path)
 
@@ -145,28 +150,26 @@ if __name__ == "__main__":
             print(words_result)
             print(f"Number of selected words: {len(words_result)}")
         else:
-            print("No words selected.")##
+            print("No words selected.")
 
         # Read protein sequences
-    sequences_result = read_sequences(proteome_file_path)
+        sequences_result = read_sequences(proteome_file_path)
 
-    if sequences_result:
-        print("\nProtein Sequences:")
-        for identifier, sequence in sequences_result.items():
-            print(f"{identifier}: {sequence[:50]}...")  # Print the first 50 characters of each sequence
-        print(f"Number of protein sequences: {len(sequences_result)}")
-    else:
-        print("No protein sequences found.")
+        if sequences_result:
+            print("\nProtein Sequences:")
+            for identifier, sequence in sequences_result.items():
+                print(f"{identifier}: {sequence[:50]}...")  # Print the first 50 characters of each sequence
+            print(f"Number of protein sequences: {len(sequences_result)}")
+        else:
+            print("No protein sequences found.")
 
- # Search words in the proteome
-    if words_result and sequences_result:
-        word_counts_result = search_words_in_proteome(words_result, sequences_result)
-        print("\nWord Counts in the Proteome:")
-        print(word_counts_result)
-    else:
-        print("No words or protein sequences available for search.")
+        # Search words in the proteome
+        if words_result and sequences_result:
+            word_counts_result = search_words_in_proteome(words_result, sequences_result)
+            print("\nWord Counts in the Proteome:")
+            print(word_counts_result)
 
-# Find the most frequent word and display information
-    find_most_frequent_word(word_counts_result, len(sequences_result))
-else:
-    print("No words or protein sequences available for search.")
+            # Find the most frequent word and display information
+            find_most_frequent_word(word_counts_result, len(sequences_result))
+        else:
+            print("No words or protein sequences available for search.")
