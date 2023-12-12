@@ -69,6 +69,9 @@ git pull
 
 git checkout your branch
 
+## to merge to main
+be on the branch that you want to merge then,
+
 git merge main
 
 # Functions used in each file
