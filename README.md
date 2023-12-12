@@ -51,7 +51,6 @@ download_file(url2, download_directory, filename2)
 
 download_file(url3, download_directory, filename3)
 
-# Aims of our project 
 
 Analyzing the occurrence of common English words in a human proteome dataset and identify the most frequently occurring word
 
