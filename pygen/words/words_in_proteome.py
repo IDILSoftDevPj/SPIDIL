@@ -121,7 +121,7 @@ def find_most_frequent_word(word_counts, total_sequences):
 
 if __name__ == "__main__":
     # Specify the directory to search for files
-    search_directory = "C:/Users/Skydr/OneDrive/Documents/M1 IDIL ECO EVO/software development/project files txt"
+    search_directory = "YOUR_DIRECTORY"
 
     # Find the words file
     words_file_path = find_file(search_directory, "english-common-words.txt")
