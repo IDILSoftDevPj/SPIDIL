@@ -81,26 +81,25 @@ def read_sequences(file_path):
 
 def search_words_in_proteome(words, sequences):
     """
-    Count the number of sequences in which each word is present in the proteome.
+    Count the number of occurrences of each word in the proteome sequences.
 
     Args:
     - words (list): A list of words to search for.
     - sequences (dict): A dictionary with protein identifiers as keys and sequences as values.
 
     Returns:
-    - dict: A dictionary with words as keys and the number of sequences containing these words as values.
+    - dict: A dictionary with words as keys and the total number of occurrences in all sequences.
     """
-    word_counts = {}
+    word_occurrences = {}
     for word in words:
         count = 0
         for sequence in sequences.values():
-            if word in sequence:
-                count += 1
-        word_counts[word] = count
+            count += sequence.upper().count(word)
+        word_occurrences[word] = count
         if count > 0:
-            print(f"{word} found in {count} sequences")
+            print(f"{word} found {count} times in the proteome.")
 
-    return word_counts
+    return word_occurrences
 
 def find_most_frequent_word(word_counts, total_sequences):
     """
@@ -165,11 +164,14 @@ if __name__ == "__main__":
 
         # Search words in the proteome
         if words_result and sequences_result:
-            word_counts_result = search_words_in_proteome(words_result, sequences_result)
-            print("\nWord Counts in the Proteome:")
-            print(word_counts_result)
+            word_occurrences_result = search_words_in_proteome(words_result, sequences_result)
+            print("\nWord Occurrences in the Proteome:")
+            print(word_occurrences_result)
 
             # Find the most frequent word and display information
-            find_most_frequent_word(word_counts_result, len(sequences_result))
+            most_frequent_word = max(word_occurrences_result, key=word_occurrences_result.get)
+            count = word_occurrences_result[most_frequent_word]
+            print(f"\nMost Frequent Word:")
+            print(f"=> {most_frequent_word} found {count} times in the proteome.")
         else:
             print("No words or protein sequences available for search.")
