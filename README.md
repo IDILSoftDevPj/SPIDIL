@@ -6,10 +6,8 @@
 
 This repository is a group project for the **software development** unit : https://bcharlier.github.io/HAB796B9/ 
 
-### First objective: english words in the human proteome
 The objective of this project is to see in we can find english words in the sequences of amino acids from the human proteome. To do this, we first use a file containing the 3000 most common words in the English lexicon. Afterwards, we use the human-proteome fasta file to create a dictionary containing all the sequences of amino acids for each proteins. We create functions that will search for words in the sequences. 
 
-### Second objective: genbank to fasta converter
 The second objective of our project is to convert a Genbank file into a fasta file, using the genome of Saccharomyces cerevisiae’s chromosome I. Firstly, we read the Genbank file "NC_001133.gbk". We create functions to identify the organism and the genes, as well as the nucleotide sequences. We create a complimentary sequence and create a fasta file. 
 
 ## Code used to download the files used by the script
@@ -51,6 +49,7 @@ download_file(url2, download_directory, filename2)
 
 download_file(url3, download_directory, filename3)
 
+# Aims of our project 
 
 Analyzing the occurrence of common English words in a human proteome dataset and identify the most frequently occurring word
 
