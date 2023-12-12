@@ -47,7 +47,7 @@ Extracting details about genes from a GenBank file, manipulating DNA sequences, 
 
 # Functions used in each file
 
-## Words in proteom functions:
+## 1) Words in proteom functions:
 
 ### function read_file(file_path) 
 reads the content of a file and counts the number of lines
@@ -59,7 +59,7 @@ count how many times each word appears in the protein sequences
 finding the most frequent word + displaying related information
 ## Genbank2fasta functions:
 
-### function read_file(file_path) 
+### 2) function read_file(file_path) 
 reads the content of a file and counts the number of lines
 ### function regular expression to extract the organism name from the GenBank file: 
 #### function find_genes(file_content) 
@@ -68,6 +68,7 @@ extracts information about genes from the GenBank file
 obtain file content, organism name, and gene information
 #### function write_fasta(file_name, comment, sequence) 
 write a FASTA file with a given file name, comment, and DNA sequence
+
 # Issues and Challenges solutions:
 
 ## Cloning:
