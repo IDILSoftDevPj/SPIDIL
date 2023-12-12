@@ -13,7 +13,8 @@ The objective of this project is to see in we can find english words in the sequ
 The second objective of our project is to convert a Genbank file into a fasta file, using the genome of Saccharomyces cerevisiae’s chromosome I. Firstly, we read the Genbank file "NC_001133.gbk". We create functions to identify the organism and the genes, as well as the nucleotide sequences. We create a complimentary sequence and create a fasta file. 
 
 ## Code used to download the files used by the script
-
+<pre>
+```python
 import os
 import requests
 
@@ -48,7 +49,8 @@ download_file(url1, download_directory, filename1)
 download_file(url2, download_directory, filename2)
 
 download_file(url3, download_directory, filename3)
-
+```
+</pre>
 
 # Useful commands
 ## Creating a branch :
