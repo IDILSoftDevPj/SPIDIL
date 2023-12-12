@@ -34,15 +34,23 @@ download_file(url3, download_directory, filename3)
 
 ## Words in proteom functions:
 
-function read_file(file_path) -> reads the content of a file and counts the number of lines
-function read_words(file_path) and read_sequences(file_path) -> reading words from a file + reading protein sequences from a FASTA file
-function search_words_in_proteome(words, sequences) -> count how many times each word appears in the protein sequences
-function find_most_frequent_word(word_counts, total_sequences) -> finding the most frequent word + displaying related information
+### function read_file(file_path) 
+reads the content of a file and counts the number of lines
+### function read_words(file_path) and read_sequences(file_path) 
+reading words from a file + reading protein sequences from a FASTA file
+### function search_words_in_proteome(words, sequences) 
+count how many times each word appears in the protein sequences
+### function find_most_frequent_word(word_counts, total_sequences) 
+finding the most frequent word + displaying related information
 ## Genbank2fasta functions:
 
-function read_file(file_path) -> reads the content of a file and counts the number of lines
-function regular expression to extract the organism name from the GenBank file
-function find_genes(file_content) -> extracts information about genes from the GenBank file
-functions read_file(), extract_organism() + find_genes() -> obtain file content, organism name, and gene information
-function write_fasta(file_name, comment, sequence) -> write a FASTA file with a given file name, comment, and DNA sequence
+### function read_file(file_path) 
+reads the content of a file and counts the number of lines
+### function regular expression to extract the organism name from the GenBank file: 
+#### function find_genes(file_content) 
+extracts information about genes from the GenBank file
+#### functions read_file(), extract_organism() + find_genes() 
+obtain file content, organism name, and gene information
+#### function write_fasta(file_name, comment, sequence) 
+write a FASTA file with a given file name, comment, and DNA sequence
  
